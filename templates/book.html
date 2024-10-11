@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Desk</title>
+</head>
+<body>
+    <h1>Book a Desk</h1>
+    <form method="POST" action="/book">
+        <label for="user">Your Name/Email:</label>
+        <input type="text" id="user" name="user" required><br><br>
+        
+        <label for="desk">Desk Number:</label>
+        <input type="text" id="desk" name="desk" required><br><br>
+        
+        <label for="date">Booking Date:</label>
+        <input type="date" id="date" name="date" required><br><br>
+        
+        <button type="submit">Book Desk</button>
+    </form>
+</body>
+</html>

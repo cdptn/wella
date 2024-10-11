@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bookings</title>
+</head>
+<body>
+    <h1>Your Bookings</h1>
+    <ul>
+        {% for booking in bookings %}
+        <li>{{ booking[2] }} booked Desk {{ booking[0] }} on {{ booking[1] }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

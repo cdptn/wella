@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wella - Login | Desk Booking System</title>
+    <style>
+        body {
+            font-family: 'Aspira W05 Medium', sans-serif;
+            background-color: #FFFFFF;
+            color: #676767;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #676767;
+            font-size: 2.5em;
+            margin-top: 50px;
+        }
+
+        form {
+            display: inline-block;
+            text-align: left;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #F7F7F7;
+            border: 1px solid #DDDDDD;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-size: 1.2em;
+            color: #676767;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 1em;
+            border: 1px solid #DDDDDD;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #B30034;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+
+        button:hover {
+            background-color: #b30034;
+        }
+
+        .link {
+            margin-top: 10px;
+        }
+
+        a {
+            color: #B30034;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .flash-message {
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #f2dede;
+            color: #a94442;
+            border: 1px solid #ebccd1;
+            border-radius: 4px;
+            width: 80%;
+        }
+
+        /* Add this style for the logo in the top left corner */
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        .logo a {
+            background-color: transparent; /* Remove background color for the logo link */
+            padding: 0; /* Remove padding for the logo link */
+        }
+
+        .logo img {
+            width: 100px; /* Adjust the width based on your logo size */
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Add the logo at the top left corner, wrapped in a link to home -->
+    <div class="logo">
+        <a href="/">
+            <img src="{{ url_for('static', filename='images/logo_wella.png') }}" alt="Home">
+        </a>
+    </div>
+
+    <h1>Wella - Login to the Desk Booking System</h1>
+
+    <!-- Display Flash Messages -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="flash-message">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="/login">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Login</button>
+
+        <div class="link">
+            <p>Don't have an account? <a href="/register">Register here</a></p>
+            <p><a href="/forgot_password">Forgot Password?</a></p>
+        </div>
+    </form>
+
+</body>
+</html>
